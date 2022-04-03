@@ -50,13 +50,13 @@ export class HeroService {
   }
 
   searchHeroes(term: string): Observable<Hero[]> {
-    if (!term.trim()) return of([]);
+    if (!term.trim()) return of([] as Hero[]);
     const url = `${this.heroesUrl}/?name=${term}`;
     return this.http.get<Hero[]>(url).pipe(
       tap(x => x.length ?
         this.log(`found heroes matching "${term}"`) :
         this.log(`no heroes matching "${term}"`)),
-      catchError(error => { return throwError(() => new Error(error))})
+      catchError(error => { throwError(() => new Error(error)); return of([] as Hero[]); })
     )
   }
 

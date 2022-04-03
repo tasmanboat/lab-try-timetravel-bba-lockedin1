@@ -54,9 +54,11 @@ export class InMemoryDataService implements InMemoryDbService {
   }
 
   responseInterceptor(res: ResponseOptions, ri: RequestInfo): ResponseOptions {
-    console.log(res.body);
-    console.log(Array.isArray(res.body));
-    if (Array.isArray(res.body)) {
+    // console.log((ri as any)?.url);
+    // console.log((ri as any)?.method);
+    // console.log(res.body);
+    // console.log(Array.isArray(res.body));
+    if ((ri as any)?.url === `api/heroes` && (ri as any)?.method === `get`) {
       this.setLocalStorageHeroes(res.body as Hero[])
       console.log(`(InMemoryDataService) setLocalStorageHeroes`);
     }
