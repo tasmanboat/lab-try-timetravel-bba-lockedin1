@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { PersistentStorageExportDirective } from './persistent-storage-export.directive';
+import { PersistentStorageImportDirective } from './persistent-storage-import.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PersistentStorageExportDirective } from './persistent-storage-export.di
     DashboardComponent,
     HeroSearchComponent,
     PersistentStorageExportDirective,
+    PersistentStorageImportDirective,
   ],
   imports: [
     BrowserModule,
