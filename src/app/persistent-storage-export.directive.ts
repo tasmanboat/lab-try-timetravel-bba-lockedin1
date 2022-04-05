@@ -14,7 +14,7 @@ export class PersistentStorageExportDirective {
   private setExport() {
     const prettifiedJson = JSON.stringify(JSON.parse(localStorage.getItem('heroes')!), null, 2);
     this.el.nativeElement.href = 'data:application/json;charset=utf-8,'+ encodeURIComponent(prettifiedJson);
-    this.el.nativeElement.download = `data_${new Date().toLocaleString().replace(' ','_')}.json`;
+    this.el.nativeElement.download = `data_${new Date().toLocaleString().replace(/\/+|\s+/g, "_")}.json`;
   }
 
 }
